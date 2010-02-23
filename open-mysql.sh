@@ -12,7 +12,7 @@ if [ ! -x /usr/bin/mysql ]; then
     exit 2
 fi
 
-echo "GRANT ALL ON aws_polls.* TO 'aws_polls'@'%' IDENTIFIED BY 'awspolls';" | /usr/bin/mysql mysql
+echo "GRANT ALL ON aws_polls.* TO 'awspolls'@'%' IDENTIFIED BY 'awspolls'; FLUSH PRIVILEGES;" | /usr/bin/mysql mysql
 
 echo "[mysqld]" > /etc/mysql/conf.d/aws_polls.cnf
 echo "bind-address = 0.0.0.0" >> /etc/mysql/conf.d/aws_polls.cnf
